@@ -6,8 +6,6 @@ prompt = [
   {"role": "system", "content": "Eres un asistente útil que extrae detalles de vuelos de las solicitudes de los usuarios."},
   {"role": "user", "content": user_prompt_input},
 ]
-
-
 def fetch_flight_details():
   origen = "Madrid"
   destino = "Amsterdam"
@@ -40,8 +38,13 @@ def fetch_flight_details():
   
   return flight
 
-def call_llm():
-  return
+def call_llm(messages):
+  # Simula la llamada a un modelo de lenguaje (LLM)
+  # Por ahora solo devuelve el último mensaje del usuario
+  for msg in reversed(messages):
+    if msg["role"] == "user":
+      return msg["content"]
+  return ""
 
 def fetch_user_preferences():
   return
